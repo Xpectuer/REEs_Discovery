@@ -80,13 +80,14 @@ public class RuleFinder {
 
             // configure spark environment
             // 16 env
-            sparkClintConfMap.put("spark.driver.memory","30G");
-            sparkClintConfMap.put("spark.executor.memory","20G");
+            sparkClintConfMap.put("spark.driver.memory","3G");
+            sparkClintConfMap.put("spark.executor.memory","2G");
             sparkClintConfMap.put("spark.executor.cores","1");
 //            sparkClintConfMap.put("spark.executor.cores","1");
 //             sparkClintConfMap.put("spark.executor.instances", "10");
             sparkClintConfMap.put("spark.executor.instances",numOfProcessors);
             sparkClintConfMap.put("spark.network.timeout", "300");
+
 //            sparkClintConfMap.put("spark.executor.instances","4");
 
 //            // 64 env
@@ -98,7 +99,7 @@ public class RuleFinder {
             logger.info("####{} getSparkClientConfig:{}", taskId, sparkClintConfMap);
             Map<String, String> conf = new HashMap<>();
             conf.put(PredicateConfig.SPARK_HOME, PredicateConfig.getSparkHome());
-            conf.put("HADOOP_USER_NAME","spark");
+            conf.put("HADOOP_USER_NAME","zhengjiaye");
 
             SparkLauncher sparkLauncher = new SparkLauncher(conf);
             for (String key : sparkClintConfMap.keySet()) {

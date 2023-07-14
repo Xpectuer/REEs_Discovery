@@ -102,8 +102,9 @@ public class MlsConstant {
 //        return sklearnSwitch;
 //    }
 //
+    // TODO: optimize hard coded path config
     public static String getSparkClientConfigPath() {
-        return "/usr/hdp/3.1.0.0-78/spark2" + SPARK_CLINET_CONFIG_PATH;
+        return "/opt/homebrew/Cellar/apache-spark/3.4.1/libexec" + SPARK_CLINET_CONFIG_PATH;
     }
 //
 //    @Value("${anaconda3BinPath}")
