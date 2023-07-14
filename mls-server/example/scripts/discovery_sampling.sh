@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 echo -e "varying sample ratio or sample round for airports dataset"
 
 task=(
@@ -31,6 +32,15 @@ srDefault=0.1
 roundDefault=1
 
 
+echo "Copying Dependencies..."
+cp ../../target/dependencies/* ../lib/
+
+echo "Copying TARGET..."
+cp ../../target/mls-server-0.1.1.jar ../lib/
+
+
+# update jar file
+
 if [ ${expOption} = "vary_sr" ]
 then
   echo -e "---------------- Varying sample ratio --------------------"
@@ -38,7 +48,8 @@ then
 for sr in 0.1 0.2 0.3 0.4
 do
    echo -e "sample ratio = "${sr}" with data "${task[${dataID}]}
-   ./run_unit_sampling.sh ${dataID} ${expOption} ${suppDefault} ${confDefault} ${tupleNumDefault} ${numOfProcessorDefault} ${confFilterThrDefault} ${topKDefault} ${roundDefault} ${sr}
+   ./run_unit_sampling.sh ${dataID} ${expOption} ${suppDefault} ${confDefault} ${tupleNumDefault} ${numOfProcessorDefault} ${confFilterThrDefault} ${topKDefault} ${roundDefault} ${sr} \
+   || exit 1
 done
 fi
 

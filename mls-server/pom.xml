@@ -6,6 +6,7 @@
         <groupId>sics.seiois</groupId>
         <artifactId>seiois</artifactId>
         <version>0.1.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <groupId>sics.seiois.mlsserver</groupId>
@@ -17,8 +18,12 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
+        <java.version>20</java.version>
+        <maven.compiler.source>20</maven.compiler.source>
+        <maven.compiler.target>20</maven.compiler.target>
         <seiois.path.to.root>..</seiois.path.to.root>
     </properties>
+
 
     <dependencies>
 
@@ -34,51 +39,65 @@
             <version>${seiois-client.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>3.1.1</version>
         </dependency>
 
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
+            <version>1.4.8</version>
+
+
         </dependency>
 
         <!--<dependency>-->
-            <!--<groupId>org.hibernate</groupId>-->
-            <!--<artifactId>hibernate-validator</artifactId>-->
+        <!--<groupId>org.hibernate</groupId>-->
+        <!--<artifactId>hibernate-validator</artifactId>-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>org.glassfish</groupId>-->
-            <!--<artifactId>javax.el</artifactId>-->
+        <!--<groupId>org.glassfish</groupId>-->
+        <!--<artifactId>javax.el</artifactId>-->
         <!--</dependency>-->
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
+            <version>2.15.2</version>
+
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>
+            <version>6.0.10</version>
         </dependency>
 
-        <!-- spring cloud包 -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <version>3.1.4</version>
         </dependency>
-        
+
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>4.0.3</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <version>3.1.1</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -94,113 +113,136 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jetty</artifactId>
+            <version>3.1.1</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>3.1.1</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>3.1.1</version>
         </dependency>
 
-        <dependency>  
-            <groupId>org.springframework.boot</groupId>  
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>  
-    	</dependency> 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter</artifactId>-->
+        <!--            <version>3.1.1</version>-->
+        <!--        </dependency>-->
 
-    	<!-- postgresql数据库 -->
-    	<dependency>
-		    <groupId>org.postgresql</groupId>
-		    <artifactId>postgresql</artifactId>
-		</dependency>
+        <!-- postgresql数据库 -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.6.0</version>
+        </dependency>
 
-    	<dependency>  
-            <groupId>org.mybatis.spring.boot</groupId>  
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-    	</dependency>
-        
+            <version>3.0.2</version>
+        </dependency>
+
         <!-- tk.mybatis 插件 -->
-	    <dependency>
-	      	<groupId>tk.mybatis</groupId>
-	      	<artifactId>mapper-spring-boot-starter</artifactId>
-	      	<version>2.1.5</version>
-	      	<exclusions>
-	        	<exclusion>
-	          		<groupId>org.apache.tomcat</groupId>
-	          		<artifactId>tomcat-jdbc</artifactId>
-	        	</exclusion>
-	      	</exclusions>
-	    </dependency>
-	    
-	    <dependency>
-	      	<groupId>tk.mybatis</groupId>
-	      	<artifactId>mapper-spring</artifactId>
-	      	<version>1.1.5</version>
-	    </dependency>
-	    
-	    <dependency>
-	        <groupId>org.projectlombok</groupId>
-	        <artifactId>lombok</artifactId>
-	        <scope>provided</scope>
-	    </dependency>
-	    
-	     <!-- common tools -->
-		<dependency>
-		    <groupId>com.github.pagehelper</groupId>
-		    <artifactId>pagehelper-spring-boot-starter</artifactId>
-		    <version>1.2.10</version>
-		</dependency>
-		
-		<!--guava-->
-	    <dependency>
-	      	<groupId>com.google.guava</groupId>
-	      	<artifactId>guava</artifactId>
-	      	<exclusions>
-	        	<exclusion>
-	          		<artifactId>j2objc-annotations</artifactId>
-	          		<groupId>com.google.j2objc</groupId>
-	        	</exclusion>
-	      	</exclusions>
-	    </dependency>
-	    
-	    <!-- 引入mybatis的 pagehelper 分页插件 -->
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+            <version>2.1.5</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.tomcat</groupId>
+                    <artifactId>tomcat-jdbc</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring</artifactId>
+            <version>1.1.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.28</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- common tools -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.10</version>
+        </dependency>
+
+        <!--guava-->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>32.1.1-jre</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>j2objc-annotations</artifactId>
+                    <groupId>com.google.j2objc</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- 引入mybatis的 pagehelper 分页插件 -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
-            <version>5.1.2</version>
+            <version>5.3.2</version>
         </dependency>
-	    
-	    <!-- swagger引入 -->
+
+        <!-- swagger引入 -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
+            <version>3.0.0</version>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
+            <version>3.0.0</version>
         </dependency>
-		
-		<dependency>
-		    <groupId>log4j</groupId>
-		    <artifactId>log4j</artifactId>
-		    <version>1.2.17</version>
-		</dependency>
-		
-		
-		<dependency>
-		    <groupId>com.github.tomakehurst</groupId>
-		    <artifactId>wiremock</artifactId>
-		    <version>2.18.0</version>
-		    <scope>test</scope>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/io.airlift/http-client -->
-		<dependency>
-		    <groupId>io.airlift</groupId>
-		    <artifactId>http-client</artifactId>
-		    <version>0.178</version> 
-		</dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.github.tomakehurst</groupId>
+            <artifactId>wiremock</artifactId>
+            <version>2.18.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.airlift/http-client -->
+        <!--        <dependency>-->
+        <!--            <groupId>io.airlift</groupId>-->
+        <!--            <artifactId>http-client</artifactId>-->
+        <!--            <version>0.178</version>-->
+        <!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/io.airlift/http-client -->
+        <dependency>
+            <groupId>io.airlift</groupId>
+            <artifactId>http-client</artifactId>
+            <version>234</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.apache.spark</groupId>
@@ -314,10 +356,11 @@
             <artifactId>antlr4-runtime</artifactId>
             <version>4.7</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
+            <version>1.9.0</version>
         </dependency>
 
         <!-- metanome-der 复制过来的包-->
@@ -340,6 +383,13 @@
         </dependency>
 
         <!-- 外网可以下载的包 -->
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>2.0.35</version>
+        </dependency>
+
         <dependency>
             <groupId>net.sf.trove4j</groupId>
             <artifactId>trove4j</artifactId>
@@ -353,13 +403,31 @@
         <dependency>
             <groupId>info.debatty</groupId>
             <artifactId>java-lsh</artifactId>
-            <version>RELEASE</version>
+            <version>0.12</version>
         </dependency>
         <dependency>
             <groupId>net.sf.opencsv</groupId>
             <artifactId>opencsv</artifactId>
             <version>2.3</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>${maven.assembly.plugin.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>3.6.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.9.4</version>
+        </dependency>
+
 
         <dependency>
             <groupId>junit</groupId>
@@ -372,6 +440,13 @@
             <groupId>com.sics.pod</groupId>
             <artifactId>mls-guava</artifactId>
             <version>0.24</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-maven-plugin -->
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-maven-plugin</artifactId>
+            <version>1.3.5</version>
         </dependency>
 
     </dependencies>
@@ -424,49 +499,98 @@
                     </execution>
                 </executions>
             </plugin>
-            
+
             <plugin>
-		        <groupId>org.mybatis.generator</groupId>
-		        <artifactId>mybatis-generator-maven-plugin</artifactId>
-		        <version>1.3.5</version>
-		        <configuration>
-		          	<configurationFile>
-		            	${basedir}/src/main/resources/generator/generatorConfig.xml
-		          	</configurationFile>
-		          	<overwrite>true</overwrite>
-		          	<verbose>true</verbose>
-		        </configuration>
-		        <dependencies>
-		          <!-- 
-		          <dependency>
-		            <groupId>mysql</groupId>
-		            <artifactId>mysql-connector-java</artifactId>
-		            <version>8.0.11</version>
-		          </dependency>
-		           -->
-		          <dependency>
-				    <groupId>org.postgresql</groupId>
-				    <artifactId>postgresql</artifactId>	
-				    <version>42.2.8</version>	
-				  </dependency>
-		          
-		          <dependency>
-		            <groupId>tk.mybatis</groupId>
-		            <artifactId>mapper</artifactId>
-		            <version>3.4.4</version>
-		          </dependency>
-		          <dependency>
-		            <groupId>com.github.drtrang</groupId>
-		            <artifactId>mybatis-generator-extension</artifactId>
-		            <version>0.0.3</version>
-		          </dependency>
-		        </dependencies>
-		    </plugin>
-		    
-            
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.5</version>
+                <configuration>
+                    <configurationFile>
+                        ${basedir}/src/main/resources/generator/generatorConfig.xml
+                    </configurationFile>
+                    <overwrite>true</overwrite>
+                    <verbose>true</verbose>
+                </configuration>
+                <dependencies>
+
+                    <!--
+                    <dependency>
+                      <groupId>mysql</groupId>
+                      <artifactId>mysql-connector-java</artifactId>
+                      <version>8.0.11</version>
+                    </dependency>
+                     -->
+                    <dependency>
+                        <groupId>org.postgresql</groupId>
+                        <artifactId>postgresql</artifactId>
+                        <version>42.6.0</version>
+                    </dependency>
+
+                    <!-- https://mvnrepository.com/artifact/tk.mybatis/mapper -->
+                    <dependency>
+                        <groupId>tk.mybatis</groupId>
+                        <artifactId>mapper</artifactId>
+                        <version>4.2.3</version>
+                    </dependency>
+
+                    <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-configuration2 -->
+                    <dependency>
+                        <groupId>org.apache.commons</groupId>
+                        <artifactId>commons-configuration2</artifactId>
+                        <version>2.1.1</version>
+                    </dependency>
+
+
+
+
+                    <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-maven-plugin -->
+                    <dependency>
+                        <groupId>org.mybatis.generator</groupId>
+                        <artifactId>mybatis-generator-maven-plugin</artifactId>
+                        <version>1.4.2</version>
+                    </dependency>
+
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+
+                <version>3.8.1</version>
+
+                <configuration>
+                    <source>20</source>
+                    <target>20</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+
+                <!-- Here come other details
+                ...
+                -->
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>sics.seiois.mlsserver.service.impl.RuleFinder</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <!-- Here come other details
+                ...
+                -->
+            </plugin>
+
+
         </plugins>
     </build>
 
 
 </project>
-   
+
+
+
